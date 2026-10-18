@@ -1,13 +1,13 @@
 @echo off
 SetLocal EnableDelayedExpansion
 
-set APP_NAME=profiler2
+set APP_NAME=fm
 set PROJECT_DIR=%~dp0
-set BUILD_DIR=%PROJECT_DIR%\build
-set SRC_DIR=%PROJECT_DIR%\source
-set SOURCES=%SRC_DIR%\main.cpp
+set BUILD_DIR=%PROJECT_DIR%build
+set SRC_DIR=%PROJECT_DIR%source
+set SOURCES=%SRC_DIR%\main.cpp %SRC_DIR%\file-mutex\platform\windows\FileMutex.cpp
 set CL_FLAGS=/nologo /std:c++20 /EHsc /Zi /W4 /Od /Fe%APP_NAME%
-set ADDITIONAL_INCLUDE_DIRS=/I%PROJECT_DIR%\source
+set ADDITIONAL_INCLUDE_DIRS=%PROJECT_DIR%\source
 set LINKER_FLAGS=/INCREMENTAL:NO 
 
 ::
