@@ -9,7 +9,9 @@ enum class LockStatus
     PathIsEmpty,
     AlreadyLocked,
     AlreadyReleased,
+    FailedToCreateDirectory,
     FailedToCreateFile,
+    RuntimeError,
 };
 
 LockStatus tryLock(const char* lock_path) noexcept;
