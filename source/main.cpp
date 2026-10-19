@@ -21,7 +21,7 @@ TEST_CASE(PathResolveTest)
     const auto lock_path = getLockPath("ResolveMe.lock");
     const auto indirect_lock_path = (std::filesystem::path{lock_path}.parent_path() / "." / std::filesystem::path{lock_path}.filename()).string();
     EXPECT_TRUE(fm::tryLock(lock_path.c_str()) == fm::LockStatus::OK);
-    EXPECT_FALSE(fm::tryLock(indirect_lock_path.c_str()) == fm::LockStatus::OK);
+    EXPECT_TRUE(fm::tryLock(indirect_lock_path.c_str()) == fm::LockStatus::AlreadyLocked);
 }
 
 int main()
